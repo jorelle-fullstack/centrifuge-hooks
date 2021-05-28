@@ -1,0 +1,2010 @@
+<!-- Any PDF CSS styles can be placed in the style tag below -->
+<!-- https://i.ibb.co/0nktnBt/image.png TIR -->
+<!-- SOLID HEAD 1ST STAGE PINION ISSUE -->
+<style>
+    .bg-gray{
+      background-color: #c8d6e5;
+    }
+    h1 {
+      text-align: left;
+      text-transform: uppercase;
+      border-bottom: 1px solid #999;
+    }
+  
+    h2 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      line-height: 1;
+    }
+    .break{
+      page-break-before: always;
+    }
+    .sections-heading {
+      margin-bottom: 10px;
+    }
+  
+    table,
+    td,
+    th {
+      border: #000 solid;
+      border-collapse: collapse;
+    }
+  
+    .red td {
+      color: #ff1300;
+    }
+  
+    .first-table th {
+      text-align: left;
+    }
+  
+    .first-table td {
+      padding: 0 20px;
+    }
+  
+    .first-table .image-tr td {
+      text-align: center;
+    }
+  
+    .image-tr td {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-top: 20px;
+    }
+  
+    .image-tr img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .image-tr img:first-child {
+      margin-left: 20px;
+    }
+  
+    .image-tr-full img {
+      width: 100%;
+    }
+  
+    table {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .table {
+      width: 100%;
+      table-layout: fixed;
+      overflow-wrap: break-word;
+    }
+  
+    .table th { 
+      padding: 10px;
+    }
+  
+    .table td,
+    .table th {
+      padding: 10px;
+      border-right: 1px solid #c5c5c5;
+      border-left: 1px solid #c5c5c5;
+    }
+  
+    .table tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  
+    .table tr {
+      border: 1px solid #c5c5c5;
+    }
+  
+    .image-tr {
+      background: #ffffff!important;
+    }
+  
+    .image-tr-full {
+      background: #ffffff!important;
+    }
+  
+    .image-tr td,
+    .image-tr-full td {
+      border: none;
+    }
+  
+    .tr-thead {
+      border: 1px solid #c5c5c5;
+    }
+  
+    .sign-div {
+      margin-top: 20px;
+    }
+  
+    .table td {
+      text-align: center;
+    } 
+  
+    .section-table tr td:nth-child(1) {
+      text-align: left!important;
+    } 
+  
+    .section-table .image-tr td:nth-child(1),
+    .section-table .image-tr-full td:nth-child(1) {
+      text-align: center!important;
+    } 
+  
+    .section-table .notes-tr td:nth-child(1) {
+      text-align: center!important;
+    }
+  
+    .first-table .image-tr td {
+      padding-top: 35px;
+    }
+    img{
+      max-width: 50%;height: auto;
+    }
+
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+  </style>
+  //DRAFT
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+
+  
+  <table class="first-table">
+    <tr>
+      <th>Description:</th>
+      <td><?= $form_data['field']['303'] ?></td>
+      <th>CP Serial Number - CFP #:</th>
+      <td><?= $form_data['field']['249'][1] ?></td>
+    </tr>
+    <tr>
+      <th>Make:</th>
+      <td><?= $form_data['field']['303'] ?></td>
+      <th>Aerion Asset #:</th>
+      <td><?= $form_data['field']['543'] ?></td>
+    </tr>
+    <tr>
+      <th>Back drive type and gear unit #: </th>
+      <td></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="4">
+          <p>Centrifuge before photos:</p>
+          <?php 
+          
+         if(!empty($form_data['field']['5'])){
+             foreach($form_data['field']['5'] as $pics){ ?>
+        <img src="<?= $pics ?>" alt="<?= $pics ?>">
+             <?php }
+         }else{
+             echo 'No images to show';
+         }
+          ?>
+        
+      </td>
+    </tr>
+  </table>
+  
+  <h2>Section: 1</h2>
+  <h1>Solid Head (GB)</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>Head to Bowl Fit</td>
+      <td><?= ($form_data['field']['19'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['19'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['19'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['20'] ?></td>
+      <td><?= $form_data['field']['21'] ?></td>
+    </tr>
+    <tr>
+      <td>Sheave area 1: </td>
+      <td><?= ($form_data['field']['22'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['22'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['22'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['23'] ?></td>
+      <td><?= $form_data['field']['24'] ?></td>
+    </tr>
+    <tr>
+      <td>Sheave area 2:</td>
+      <td><?= ($form_data['field']['25'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['25'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['25'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['26'] ?></td>
+      <td><?= $form_data['field']['30'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor seal ring 1:</td>
+      <td><?= ($form_data['field']['28'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['28'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['28'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['32'] ?></td>
+      <td><?= $form_data['field']['27'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor seal ring 2:</td>
+      <td><?= ($form_data['field']['31'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['31'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['31'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['35'] ?></td>
+      <td><?= $form_data['field']['33'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor bearing area:</td>
+      <td><?= ($form_data['field']['34'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['34'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['34'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['38'] ?></td>
+      <td><?= $form_data['field']['39'] ?></td>
+    </tr>
+    <tr>
+      <td>Main bearing area: </td>
+      <td><?= ($form_data['field']['37'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['37'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['37'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['42'] ?></td>
+      <td><?= $form_data['field']['36'] ?></td>
+    </tr>
+    <tr>
+      <td>Sheave 1:</td>
+      <td><?= ($form_data['field']['41'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['41'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['41'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['44'] ?></td>
+      <td><?= $form_data['field']['45'] ?></td>
+    </tr>
+    <tr>
+      <td>Sheave 2: </td>
+      <td><?= ($form_data['field']['43'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['43'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['43'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['47'] ?></td>
+      <td><?= $form_data['field']['55'] ?></td>
+    </tr>
+    <!-- <tr class="red">
+      <td>1st stage pinion, and planet gear bearings and seals</td>
+      <td><?= ($form_data['field']['43'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['43'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['43'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['47'] ?></td>
+      <td><?= $form_data['field']['55'] ?></td>
+    </tr> -->
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['49'] ?>
+      </td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+         if(!empty($form_data['field']['50'])){
+             foreach($form_data['field']['50'] as $pics){ ?>
+        <img src="<?= $pics ?>" alt="<?= $pics ?>">
+             <?php }
+         }else{
+             echo 'No images to show';
+         }
+          ?>
+        
+      </td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 2</h2>
+  <h1>Solid Head (Front Hub)</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>Head to Bowl Fit</td>
+      <td><?= ($form_data['field']['56'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['56'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['56'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['57'] ?></td>
+      <td><?= $form_data['field']['58'] ?></td>
+    </tr>
+    <tr>
+      <td>Gear flange area OD 1:</td>
+      <td><?= ($form_data['field']['52'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['52'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['52'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['60'] ?></td>
+      <td><?= $form_data['field']['61'] ?></td>
+    </tr>
+    <tr>
+      <td>Gear flange area OD 2:</td>
+      <td><?= ($form_data['field']['59'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['59'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['59'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['63'] ?></td>
+      <td><?= $form_data['field']['64'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor seal ring 1:</td>
+      <td><?= ($form_data['field']['62'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['62'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['62'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['66'] ?></td>
+      <td><?= $form_data['field']['48'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor seal ring 2:</td>
+      <td><?= ($form_data['field']['65'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['65'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['65'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['53'] ?></td>
+      <td><?= $form_data['field']['67'] ?></td>
+    </tr>
+    <tr>
+      <td>Conveyor bearing area:</td>
+      <td><?= ($form_data['field']['68'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['68'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['68'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['72'] ?></td>
+      <td><?= $form_data['field']['70'] ?></td>
+    </tr>
+    <tr>
+      <td>Main bearing area: </td>
+      <td><?= ($form_data['field']['71'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['71'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['71'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['75'] ?></td>
+      <td><?= $form_data['field']['76'] ?></td>
+    </tr>
+    <tr>
+      <td>Gear flange fit ID 1:</td>
+      <td><?= ($form_data['field']['77'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['77'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['77'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['78'] ?></td>
+      <td><?= $form_data['field']['79'] ?></td>
+    </tr>
+    <tr>
+      <td>Gear flange fit ID 2: </td>
+      <td><?= ($form_data['field']['80'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['80'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['80'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['81'] ?></td>
+      <td><?= $form_data['field']['82'] ?></td>
+    </tr>
+    <tr>
+      <td>GF fit to GB:</td>
+      <td><?= ($form_data['field']['74'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['74'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['74'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['69'] ?></td>
+      <td><?= $form_data['field']['73'] ?></td>
+    </tr>
+    <tr>
+      <td>Machine check TIR: </td>
+      <td><?= ($form_data['field']['83'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['83'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['83'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['84'] ?></td>
+      <td><?= $form_data['field']['85'] ?></td>
+    </tr>
+    <tr>
+      <td>Dam plates (weirs): </td>
+      <td><?= ($form_data['field']['86'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['86'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['86'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['88'] ?></td>
+      <td>-</td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['89'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+          if(!empty($form_data['field']['90'])){
+              foreach($form_data['field']['90'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  -
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 3</h2>
+  <h1>Conical (Taper Section)</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>Conical to head fit:</td>
+      <td><?= ($form_data['field']['123'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['123'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['123'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['96'] ?></td>
+      <td><?= $form_data['field']['97'] ?></td>
+    </tr>
+    <tr>
+      <td>Conical to bowl fit:</td>
+      <td><?= ($form_data['field']['120'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['120'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['120'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['100'] ?></td>
+      <td><?= $form_data['field']['101'] ?></td>
+    </tr>
+    <tr>
+      <td>Conical wear OD / ID:</td>
+      <td><?= ($form_data['field']['94'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['94'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['94'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['105'] ?></td>
+      <td><?= $form_data['field']['106'] ?></td>
+    </tr>
+    <tr>
+      <td>Plows: </td>
+      <td><?= ($form_data['field']['104'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['104'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['104'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['102'] ?></td>
+      <td><?= $form_data['field']['109'] ?></td>
+    </tr>
+    <tr>
+      <td>Wear inserts: </td>
+      <td><?= ($form_data['field']['107'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['107'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['107'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['108'] ?></td>
+      <td><?= $form_data['field']['103'] ?></td>
+    </tr>
+    <tr>
+      <td>Wear ring: </td>
+      <td><?= ($form_data['field']['110'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['110'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['110'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['111'] ?></td>
+      <td><?= $form_data['field']['112'] ?></td>
+    </tr>
+    <tr>
+      <td>Strips:</td>
+      <td><?= ($form_data['field']['113'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['113'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['113'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['114'] ?></td>
+      <td>-</td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['116'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+          if(!empty($form_data['field']['117'])){
+              foreach($form_data['field']['117'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 4</h2>
+  <h1>Bowl</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>Bowl to conical fit:</td>
+      <td><?= ($form_data['field']['99'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['99'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['99'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['125'] ?></td>
+      <td><?= $form_data['field']['126'] ?></td>
+    </tr>
+    <tr>
+      <td>Bowl to liquid hub fit: </td>
+      <td><?= ($form_data['field']['124'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['124'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['124'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['121'] ?></td>
+      <td><?= $form_data['field']['122'] ?></td>
+    </tr>
+    <tr>
+      <td>Bowl strips:</td>
+      <td><?= ($form_data['field']['128'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['128'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['128'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['129'] ?></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Bowl OD condition: </td>
+      <td><?= ($form_data['field']['130'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['130'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['130'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['131'] ?></td>
+      <td><?= $form_data['field']['132'] ?></td>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['133'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+          if(!empty($form_data['field']['134'])){
+              foreach($form_data['field']['134'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 5</h2>
+  <h1>Bearing housings (Solid end liquid end pillow blocks)</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>Solid bore:</td>
+      <td><?= ($form_data['field']['140'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['140'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['140'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['141'] ?></td>
+      <td><?= $form_data['field']['142'] ?></td>
+    </tr>
+    <tr>
+      <td>Solid bore to base Parallelism:</td>
+      <td><?= ($form_data['field']['143'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['143'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['143'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['150'] ?></td>
+      <td><?= $form_data['field']['145'] ?></td>
+    </tr>
+    <tr>
+      <td>SE inner cover: </td>
+      <td><?= ($form_data['field']['135'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['135'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['135'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['147'] ?></td>
+      <td><?= $form_data['field']['148'] ?></td>
+    </tr>
+    <tr>
+      <td>SE outer cover: </td>
+      <td><?= ($form_data['field']['146'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['146'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['146'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['137'] ?></td>
+      <td><?= $form_data['field']['138'] ?></td>
+    </tr>
+    <tr>
+      <td>Liquid bore: </td>
+      <td><?= ($form_data['field']['149'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['149'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['149'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['144'] ?></td>
+      <td><?= $form_data['field']['154'] ?></td>
+    </tr>
+    <tr>
+      <td>Liquid bore to base parallelism:</td>
+      <td><?= ($form_data['field']['155'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['155'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['155'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['153'] ?></td>
+      <td><?= $form_data['field']['151'] ?></td>
+    </tr>
+    <tr>
+      <td>LE inner cover:</td>
+      <td><?= ($form_data['field']['159'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['159'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['159'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['156'] ?></td>
+      <td><?= $form_data['field']['161'] ?></td>
+    </tr>
+    <tr>
+      <td>LE outer cover:</td>
+      <td><?= ($form_data['field']['162'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['162'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['162'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['163'] ?></td>
+      <td><?= $form_data['field']['158'] ?></td>
+    </tr>
+    <tr>
+      <td>Flingers: </td>
+      <td><?= ($form_data['field']['152'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['152'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['152'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['160'] ?></td>
+      <td><?= $form_data['field']['164'] ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['165'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+          if(!empty($form_data['field']['166'])){
+              foreach($form_data['field']['166'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 6</h2>
+  <h1>Conveyor (Scroll)</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+      <td>Actual</td>
+      <td>Print</td>
+    </tr>
+    <tr>
+      <td>SE feed trunion fit to conveyor</td>
+      <td><?= ($form_data['field']['169'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['169'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['169'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['177'] ?></td>
+      <td><?= $form_data['field']['174'] ?></td>
+    </tr>
+    <tr>
+      <td>Flight section A thru E:</td>
+      <td><?= ($form_data['field']['172'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['172'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['172'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['170'] ?></td>
+      <td><?= $form_data['field']['175'] ?></td>
+    </tr>
+    <tr>
+      <td>SE bearing housing outer fit: </td>
+      <td><?= ($form_data['field']['176'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['176'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['176'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['173'] ?></td>
+      <td><?= $form_data['field']['178'] ?></td>
+    </tr>
+    <tr>
+      <td>SE bearing housing inner fit:</td>
+      <td><?= ($form_data['field']['179'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['179'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['179'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['180'] ?></td>
+      <td><?= $form_data['field']['181'] ?></td>
+    </tr>
+    <tr>
+      <td>SE fit to housing: </td>
+      <td><?= ($form_data['field']['182'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['182'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['182'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['183'] ?></td>
+      <td><?= $form_data['field']['184'] ?></td>
+    </tr>
+    <tr>
+      <td>SE seal housing:</td>
+      <td><?= ($form_data['field']['185'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['185'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['185'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['186'] ?></td>
+      <td><?= $form_data['field']['187'] ?></td>
+    </tr>
+    <tr>
+      <td>LE bearing housing outer fit: </td>
+      <td><?= ($form_data['field']['188'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['188'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['188'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['189'] ?></td>
+      <td><?= $form_data['field']['191'] ?></td>
+    </tr>
+    <tr>
+      <td>LE bearing housing inner fit:</td>
+      <td><?= ($form_data['field']['192'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['192'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['192'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['193'] ?></td>
+      <td><?= $form_data['field']['194'] ?></td>
+    </tr>
+    <tr>
+      <td>LE fit to housing: </td>
+      <td><?= ($form_data['field']['195'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['195'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['195'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['201'] ?></td>
+      <td><?= $form_data['field']['198'] ?></td>
+    </tr>
+    <tr>
+      <td>LE seal Ring: </td>
+      <td><?= ($form_data['field']['200'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['200'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['200'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['196'] ?></td>
+      <td><?= $form_data['field']['202'] ?></td>
+    </tr>
+    <tr>
+      <td>Tiles:</td>
+      <td><?= ($form_data['field']['203'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['203'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['203'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['204'] ?></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Spline hub: </td>
+      <td><?= ($form_data['field']['205'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['205'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['205'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['211'] ?></td>
+      <td><?= $form_data['field']['206'] ?></td>
+    </tr>
+    <tr>
+      <td>Accelerator plate: </td>
+      <td><?= ($form_data['field']['208'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['208'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['208'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['212'] ?></td>
+      <td><?= $form_data['field']['210'] ?></td>
+    </tr>
+    <tr>
+      <td>Feed zone liner: </td>
+      <td><?= ($form_data['field']['213'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['213'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['213'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['214'] ?></td>
+      <td><?= $form_data['field']['215'] ?></td>
+    </tr>
+    <tr>
+      <td>Feed nozzles:</td>
+      <td><?= ($form_data['field']['216'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['216'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['216'] == 'N/A') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['217'] ?></td>
+      <td><?= $form_data['field']['218'] ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['219'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="6">
+      <?php 
+          
+          if(!empty($form_data['field']['220'])){
+              foreach($form_data['field']['220'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section 7:</h2>
+  <h1> Wear areas Section Below</h1>
+  <table class="table">
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+    </tr>
+    <tr>
+      <td><?= $form_data['field']['222'] ?></td>
+      <td><?= $form_data['field']['223'] ?></td>
+      <td><?= $form_data['field']['224'] ?></td>
+      <td><?= $form_data['field']['225'] ?></td>
+      <td><?= $form_data['field']['226'] ?></td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <th>G</th>
+    </tr>
+    <tr>
+      <td><?= $form_data['field']['227'] ?></td>
+      <td><?= $form_data['field']['228'] ?></td>
+    </tr>
+    <tr class="image-tr-full">
+      <td colspan="5">
+        <img src="https://i.ibb.co/HhyzYw1/image.png" alt="wear area image reference" width="100%">
+      </td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="6"><?= 'Notes: '.$form_data['field']['229'] ?></td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 8</h2>
+  <h1>Main / Back Drive Motor</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Main Drive Motor Bearings</td>
+      <td><?= ($form_data['field']['324'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['324'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['324'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Slidebase</td>
+      <td><?= ($form_data['field']['325'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['325'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['325'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Wire Condition</td>
+      <td><?= ($form_data['field']['326'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['326'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['326'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Clutch</td>
+      <td><?= ($form_data['field']['327'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['327'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['327'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Sheave</td>
+      <td><?= ($form_data['field']['328'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['328'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['328'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Belt</td>
+      <td><?= ($form_data['field']['329'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['329'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['329'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Main Drive Paint</td>
+      <td><?= ($form_data['field']['330'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['330'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['330'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'Notes: ' . $form_data['field']['331'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="4">
+      <?php 
+          
+          if(!empty($form_data['field']['344'])){
+              foreach($form_data['field']['344'] as $pics){ ?>
+        <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 9</h2>
+  <h1>Base / Case & Cover</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Pillow block housing mounting holes:</td>
+      <td><?= ($form_data['field']['274'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['274'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['274'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Case mounting holes: </td>
+      <td><?= ($form_data['field']['275'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['275'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['275'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Guard mounting holes: </td>
+      <td><?= ($form_data['field']['276'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['276'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['276'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Grease device: </td>
+      <td><?= ($form_data['field']['277'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['277'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['277'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Vibration monitor & switch:</td>
+      <td><?= ($form_data['field']['278'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['278'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['278'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>MD Motor mount: </td>
+      <td><?= ($form_data['field']['279'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['279'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['279'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>BD Motor Mount </td>
+      <td><?= ($form_data['field']['280'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['280'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['280'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>MD Motor</td>
+      <td><?= ($form_data['field']['281'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['281'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['281'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Paint </td>
+      <td><?= ($form_data['field']['282'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['282'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['282'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Feed Tube:</td>
+      <td><?= ($form_data['field']['284'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['284'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['284'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'Notes: '.$form_data['field']['285'] ?></td>
+    </tr>
+    <tr>
+      <td>Cover</td>
+      <td><?= ($form_data['field']['287'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['287'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['287'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Case Bottom</td>
+      <td><?= ($form_data['field']['288'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['288'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['288'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <!-- <tr>
+      <td>Tie down brackets</td>
+      <td><?= ($form_data['field']['289'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['289'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['289'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr> -->
+    <tr>
+      <td>Paint</td>
+      <td><?= ($form_data['field']['290'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['290'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['290'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'Notes: '.$form_data['field']['291'] ?></td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 10</h2>
+  <h1>Control Panel / Guards</h1>
+  <table class="table section-table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+    </tr>
+    <tr>
+      <td>External Components</td>
+      <td><?= ($form_data['field']['294'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['294'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['294'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Internal Components</td>
+      <td><?= ($form_data['field']['295'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['295'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['295'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>VFD</td>
+      <td><?= ($form_data['field']['296'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['296'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['296'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'Notes: '.$form_data['field']['300'] ?></td>
+    </tr>
+    <tr>
+      <td>Paint</td>
+      <td><?= ($form_data['field']['297'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['297'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['297'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Overall Condition</td>
+      <td><?= ($form_data['field']['299'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['299'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['299'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'Notes: '.$form_data['field']['301'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="4">
+      <?php 
+          
+          if(!empty($form_data['field']['220'])){
+              foreach($form_data['field']['220'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section: 11</h2>
+  <table class="table section-table">
+    <tr><th colspan=4><h1>Gearbox First Stage</h1></th></tr>
+    <tr class="tr-thead">
+      <th></th>
+      <th>OK</th>
+      <th>Repair</th>
+      <th>NA</th>
+    </tr>
+    <tr>
+      <td>Gearbox Series</td>
+      <td><?= ($form_data['field']['346'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['346'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['346'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Pinion Bearing Area 1</td>
+      <td><?= ($form_data['field']['347'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['347'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['347'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Pinion Bearing Area 2</td>
+      <td><?= ($form_data['field']['348'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['348'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['348'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Pinion Seal Area</td>
+      <td><?= ($form_data['field']['349'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['349'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['349'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Ring Gear</td>
+      <td><?= ($form_data['field']['350'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['350'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['350'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Planet Gears</td>
+      <td><?= ($form_data['field']['351'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['351'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['351'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Journals</td>
+      <td><?= ($form_data['field']['352'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['352'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['352'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Thrust Washers</td>
+      <td><?= ($form_data['field']['353'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['353'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['353'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Journal Bearings</td>
+      <td><?= ($form_data['field']['354'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['354'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['354'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Cover</td>
+      <td><?= ($form_data['field']['355'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['355'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['355'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Cage</td>
+      <td><?= ($form_data['field']['356'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['356'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['356'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr>
+      <td>Cage Cover</td>
+      <td><?= ($form_data['field']['357'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['357'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['357'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'First Stage Gearbox Notes: '.$form_data['field']['359'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="4">
+      <?php 
+          
+          if(!empty($form_data['field']['370'])){
+              foreach($form_data['field']['370'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="4"><h1>Gear Box Second Stage</h1></th>
+    </tr>
+    
+    <tr>
+      <td>Pinion</td>
+      <td><?= ($form_data['field']['358'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['358'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['358'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Ring Gear</td>
+      <td><?= ($form_data['field']['361'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['361'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['361'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Planet Gears</td>
+      <td><?= ($form_data['field']['362'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['362'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['357'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Journals</td>
+      <td><?= ($form_data['field']['363'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['363'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['363'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Thrust Washers</td>
+      <td><?= ($form_data['field']['364'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['364'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['364'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Journal Bearings</td>
+      <td><?= ($form_data['field']['365'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['365'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['365'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Cover</td>
+      <td><?= ($form_data['field']['366'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['366'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['366'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Cage</td>
+      <td><?= ($form_data['field']['367'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['367'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['367'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr>
+      <td>Cage Cover</td>
+      <td><?= ($form_data['field']['368'] == 'OK') ? '&#x274C;' : '' ?></td>
+      <td style="color: red"><?= ($form_data['field']['368'] == 'Repair') ? '&#x274C;' : '' ?></td>
+      <td><?= ($form_data['field']['368'] == 'N/A') ? '&#x274C;' : '' ?></td>
+    </tr>
+    <tr class="red notes-tr">
+      <td colspan="4"><?= 'First Stage Gearbox Notes: '.$form_data['field']['369'] ?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="4">
+      <?php 
+          
+          if(!empty($form_data['field']['371'])){
+              foreach($form_data['field']['371'] as $pics){ ?>
+   <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section 12</h2>
+  <h1>Centrifuge Assembly Checklist</h1>
+  <table class="table">
+    <tr class="tr-thead">
+      <th></th>
+      <th>Completed</th>
+      <th>Date Checked</th>
+    </tr>
+    <tr>
+      <td>If Conical is not attached to the bowl, then assemble the conical using new bolts.</td>
+      <td><?= ($form_data['field']['373'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['372']?></td>
+    </tr>
+    <tr>
+      <td>Assemble all remaining bowl sections with new bolts.</td>
+      <td><?= ($form_data['field']['375'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['374']?></td>
+    </tr>
+    <tr>
+      <td> Torque, mark conical, bowl section bolts</td>
+      <td><?= ($form_data['field']['377'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['376']?></td>
+    </tr>
+    <tr>
+      <td>Install solid end head on conical</td>
+      <td><?= ($form_data['field']['379'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['378']?></td>
+    </tr>
+    <tr>
+      <td>Torque, mark all wear liner & feed nozzle bolts.</td>
+      <td><?= ($form_data['field']['381'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['380']?></td>
+    </tr>
+    <tr>
+      <td>Install wear protection, torque, & mark.</td>
+      <td><?= ($form_data['field']['383'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['382']?></td>
+    </tr>
+    <tr>
+      <td>Install liquid end weirs on head, torque & mark.</td>
+      <td><?= ($form_data['field']['385'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['384']?></td>
+    </tr>
+    <tr>
+      <td>Install liquid end head for balancing.</td>
+      <td><?= ($form_data['field']['387'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['386']?></td>
+    </tr>
+    <tr>
+      <td>Balance bowl & indicate the total indicator runout</td>
+      <td><?= $form_data['field']['392']?></td>
+      <td><?= $form_data['field']['391']?></td>
+    </tr>
+    <tr>
+      <td>Install balance trunnions on conveyor & balance.</td>
+      <td><?= ($form_data['field']['394'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['393']?></td>
+    </tr>
+    <tr>
+      <td>Build solid end seal housing.</td>
+      <td><?= ($form_data['field']['396'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['395']?></td>
+    </tr>
+    <tr>
+      <td>Build liquid end seal housing</td>
+      <td><?= ($form_data['field']['397'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['398']?></td>
+    </tr>
+    <tr>
+      <td>Build solid end of conveyor.</td>
+      <td><?= ($form_data['field']['400'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['399']?></td>
+    </tr>
+    <tr>
+      <td>Torque all conveyor bolts and mark.</td>
+      <td><?= ($form_data['field']['402'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['401']?></td>
+    </tr>
+    <tr>
+      <td>Pack and grease all conveyor bearings & seals</td>
+      <td><?= ($form_data['field']['404'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['403']?></td>
+    </tr>
+    <tr>
+      <td>Install conveyor in bowl, ensure no broken tiles or hard facing.</td>
+      <td><?= ($form_data['field']['406'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['405']?></td>
+    </tr>
+    <tr>
+      <td>Install liquid end head</td>
+      <td><?= ($form_data['field']['408'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['407']?></td>
+    </tr>
+    <tr>
+      <td>Build solid end head, torque bolts & mark.</td>
+      <td><?= ($form_data['field']['410'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['409']?></td>
+    </tr>
+    <tr>
+      <td>Install Sheave, torque & mark bolts.</td>
+      <td><?= ($form_data['field']['412'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['411']?></td>
+    </tr>
+    <tr>
+      <td>Build liquid end head, torque & mark bolts</td>
+      <td><?= ($form_data['field']['414'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['413']?></td>
+    </tr>
+    <tr>
+      <td>Verify & Double check gear flange is 0.005 &ldquo;tight&rdquo;</td>
+      <td><?= ($form_data['field']['416'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['415']?></td>
+    </tr>
+    <tr>
+      <td>Install Gear Flange with Blue lock tight & use hardened bolts only.</td>
+      <td><?= ($form_data['field']['418'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['417']?></td>
+    </tr>
+    <tr class="image-tr">
+      <td colspan="3"><b>Gear Flange Pictures</b> </td>
+    </tr>  
+    <tr class="image-tr">
+      <td colspan="3">
+      <?php 
+          
+          if(!empty($form_data['field']['421'])){
+              foreach($form_data['field']['421'] as $pics){ ?>
+        <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+    <tr>
+      <td>Ensure conveyor rotates</td>
+      <td><?= ($form_data['field']['423'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['422']?></td>
+    </tr>
+    <tr>
+      <td>Charge all grease ways</td>
+      <td><?= ($form_data['field']['425'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['424']?></td>
+    </tr>
+    <tr>
+      <td>Install rotating assembly test stand or base.</td>
+      <td><?= ($form_data['field']['427'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['426']?></td>
+    </tr>
+    <tr>
+      <td>Gear Flange Runout</td>
+      <td><?= $form_data['field']['430']?></td>
+      <td><?= $form_data['field']['428']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Face Runout</td>
+      <td><?= $form_data['field']['432'] ?></td>
+      <td><?= $form_data['field']['431']?></td>
+    </tr>
+    <tr>
+      <td>Sheave Runout</td>
+      <td><?= $form_data['field']['434'] ?></td>
+      <td><?= $form_data['field']['433']?></td>
+    </tr>
+    <tr>
+      <td>Solid end rotating assembly runout</td>
+      <td><?= $form_data['field']['438'] ?></td>
+      <td><?= $form_data['field']['437']?></td>
+    </tr>
+    <tr>
+      <td>Bowl center runout</td>
+      <td><?= $form_data['field']['440'] ?></td>
+      <td><?= $form_data['field']['439']?></td>
+    </tr>
+    <tr>
+      <td>Liquid end rotating assembly runout</td>
+      <td><?= $form_data['field']['442'] ?></td>
+      <td><?= $form_data['field']['441'] ?></td>
+    </tr>
+    <tr>
+      <td>Verify liquid end head gearbox flange fit</td>
+      <td><?= ($form_data['field']['443'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['444']?></td>
+    </tr>
+    <tr>
+      <td>Install gearbox, torque & mark</td>
+      <td><?= ($form_data['field']['446'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['445']?></td>
+    </tr>
+    <tr>
+      <td>Fill oil in clutch</td>
+      <td><?= ($form_data['field']['448'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['447']?></td>
+    </tr>
+    <tr>
+      <td>Torque & mark bolts from main drive sheave</td>
+      <td><?= ($form_data['field']['450'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['449']?></td>
+    </tr>
+    <tr>
+      <td>Torque & mark bolts for back drive sheave</td>
+      <td><?= ($form_data['field']['452'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['451']?></td>
+    </tr>
+    <tr>
+      <td>Ensure electrical panel door bolts are tight</td>
+      <td><?= ($form_data['field']['455'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['453']?></td>
+    </tr>
+    <tr>
+      <td>Ensure electrical panel frame bolts are tight</td>
+      <td><?= ($form_data['field']['457'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['456']?></td>
+    </tr>
+    <tr>
+      <td>Tighten electrical panel terminals</td>
+      <td><?= ($form_data['field']['459'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['458']?></td>
+    </tr>
+    <tr>
+      <td>Assure electrical panel components are working</td>
+      <td><?= ($form_data['field']['461'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['460']?></td>
+    </tr>
+    <tr>
+      <td>Assure all indicator lights are operational</td>
+      <td><?= ($form_data['field']['463'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['462']?></td>
+    </tr>
+    <tr>
+      <td>Assure safety devices are operational</td>
+      <td><?= ($form_data['field']['465'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['464']?></td>
+    </tr>
+    <tr>
+      <td>Test run rotating assembly</td>
+      <td><?= ($form_data['field']['467'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['466']?></td>
+    </tr>
+    <tr>
+      <td>Inspect pillow lube system</td>
+      <td><?= ($form_data['field']['469'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['468']?></td>
+    </tr>
+    <tr>
+      <td>Assure torque switch is operational</td>
+      <td><?= ($form_data['field']['471'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['470']?></td>
+    </tr>
+    <tr>
+      <td>Install feed nozzles</td>
+      <td><?= ($form_data['field']['473'][0] == 'Complete') ? '&#x274C;' : '' ?></td>
+      <td><?= $form_data['field']['472']?></td>
+    </tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section 13</h2>
+  <h1>Centrifuge Runout Test Report</h1>
+  <table class="table">
+    <tr>
+          <th colspan=2 class="bg-gray">0.5 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['478']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['479']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['481']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['483']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['482']?>°F</td>
+    </tr>
+  
+    
+    <tr>
+          <th colspan=2 class="bg-gray">1 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['486']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['487']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['488']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['490']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['489']?>°F</td>
+    </tr>
+  
+  
+    
+    <tr>
+          <th colspan=2 class="bg-gray">1.5 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['492']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['493']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['494']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['495']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['496']?>°F</td>
+    </tr>
+  
+    
+    <tr>
+          <th colspan=2 class="bg-gray">2 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['498']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['499']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['500']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['501']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['502']?>°F</td>
+    </tr>
+  
+  
+    <tr>
+          <th colspan=2 class="bg-gray">2.5 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['504']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['505']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['506']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['507']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['508']?>°F</td>
+    </tr>
+  
+  
+    <tr>
+          <th colspan=2 class="bg-gray">3 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['510']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['511']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['512']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['513']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['514']?>°F</td>
+    </tr>
+  
+  
+    <tr>
+          <th colspan=2 class="bg-gray">3.5 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['517']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['518']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['519']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['520']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['515']?>°F</td>
+    </tr>
+  
+  
+    <tr>
+          <th colspan=2 class="bg-gray">4 Hr. Run</th>
+    </tr>
+    <tr>
+      <td>Date</td><td> <?= $form_data['field']['522']?></td>
+    </tr>
+    <tr>
+      <td>Time</td><td> <?= $form_data['field']['523']?></td>
+    </tr>
+    <tr>
+      <td>Gearbox Temp (°F)</td><td> <?= $form_data['field']['524']?>°F</td>
+    </tr>
+    <tr>
+      <td>Solid End Bearing Temp (°F)</td><td> <?= $form_data['field']['525']?>°F</td>
+    </tr>
+    <tr>
+      <td>Liquid End Bearing Temp (°F)</td><td> <?= $form_data['field']['526']?>°F</td>
+    </tr>
+  
+  
+  </table>
+  <table class="table">
+    <tr>
+        <th colspan=2 class="bg-gray">Liquid End Bearing Vibration</th>
+    </tr>
+    <tr><th>Vertical</th><th>Horizontal</th></tr>
+    <tr><td><?= $form_data['field']['528']?></td><td><?= $form_data['field']['530']?></td></tr>
+    <tr>
+        <th colspan=2 class="bg-gray">Solid End Bearing Vibration</th>
+    </tr>
+    <tr><th>Vertical</th><th>Horizontal</th></tr>
+    <tr><td><?= $form_data['field']['532']?></td><td><?= $form_data['field']['534']?></td></tr>
+  </table>
+  
+  <div class="row">
+    <div class="column">
+      <img src="https://i.ibb.co/QK81NNg/Aerion-Logo-4.png" alt="aerion logo" height="50">
+    </div>
+    <div class="column">
+      <h2>Centrifuge Inspection Report</h2>
+      <h3>Date:<?= $form_data['field']['1'] ?></h3>
+    </div>
+  </div>
+  <h2 class="break">Section 14</h2>
+  <h1>Quality Control</h1>
+  <table class="table">
+    <tr>
+      <th>TECH</th>
+      <th>QC</th>
+      <th></th>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['252']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['252']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Open coffin - check bowl to see it's not packed off</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['253']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['253']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check bowl, plows, inserts, and wear plate for damage</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['254']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['254']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Insure all dail pins are  installed in pillow blocks</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['255']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['255']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check coffin for cracks and that all lock-downs are in place</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['256']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['256']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check bottom coffin bolts to centrifuge base</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['257']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['257']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check teflon liner inside coffin</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['258']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['258']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Pull guards - check oil in gear box and fluid clutch 2 o'clock position</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['259']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['259']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Pull out feed tube to check for wear</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['260']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['260']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Purge conveyor bearings</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['261']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['261']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Put 3 shots of grease in pillow block bearings</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['252']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['252']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Open and check electrical box. Insure all connection are tight.</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['263']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['263']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check wire for cuts and damage</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['264']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['264']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Check for name plates and serial #</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['265']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['265']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Put all guards back on and bolt down to skid</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['266']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['266']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Put safety chain 15 feet from unit on all sides before running unit.</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['267']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['267']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Run test for 2 hours with Pump, check temp. on bearings and gear box</td>
+    </tr>
+    <tr>
+      <?= '<td>' . (strpos( '_' . implode(',',$form_data['field']['268']),'Tech') ? '&#x274C;' : '&#10007;') . '</td><td>' .  (strpos( '_' . implode(',',$form_data['field']['268']),'QC') ? '&#x274C;' : '&#10007;') . '</td>' ?>
+      <td>Tag ready to go with name and date</td>
+    </tr>
+    
+  </table>
+  
+  <table class="table">
+    <tr>
+          <th class="bg-gray">Special Information or Comments</th>
+    </tr>
+    <tr>
+          <td><?= $form_data['field']['269']?></td>
+    </tr>
+    </table>
+    <tr class="image-tr">
+      <th>Balance Report Upload</th> 
+    </tr>
+    <tr class="image-tr">
+      <td>
+      <?php 
+          
+          if(!empty($form_data['field']['271'])){
+              foreach($form_data['field']['271'] as $pics){ ?>
+            <img src="<?= $pics ?>" alt="<?= $pics ?>">
+              <?php }
+          }else{
+              echo 'No images to show';
+          }
+           ?>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <table class="s-table">
+    <tr>
+      <td class="signed-by"><span>Serviced and Checked by: </span></td>
+      <td class="date-label"><span>Date Signed:</span></td>
+    </tr>
+    <tr>
+      <td class="signed-by"><span>QC Approval by: </span></td>
+      <td class="date-label"><span>Date Signed:</span></td>
+    </tr>
+  </table>
+  <style>
+    .gfield_list{
+      width: 100%
+    }
+    .label{
+      text-align: left
+    }
+    .signed-by, .date-label{
+      text-align: left;
+    }
+    .s-table {
+      width: 100%;
+      table-layout: fixed;
+      overflow-wrap: break-word;
+    }
+  
+    .s-table th { 
+      padding: 10px;
+    }
+  
+    .s-table td,
+    .s-table th {
+      padding: 10px;
+      border-right: 1px solid #c5c5c5;
+      border-left: 1px solid #c5c5c5;
+    }
+  
+    .s-table tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+  
+    .s-table tr {
+      border: 1px solid #c5c5c5;
+    }
+  </style>
